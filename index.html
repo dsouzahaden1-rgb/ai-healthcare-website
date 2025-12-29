@@ -1,18 +1,87 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>AI Health Check</title>
-</head>
-<body>
-  <h1>AI Health Check</h1>
-  <p>Answer simple questions to know your health risk</p>
-
-  <button onclick="check()">Start Health Check</button>
-
-  <script>
-    function check() {
-      alert("Health Risk: Medium\nRecommended tests: Sugar, BP, Cholesterol");
+  <title>DawaAI – Health for Humanity</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      background: #f9f9f9;
     }
-  </script>
+    h1 {
+      color: #2c7be5;
+    }
+    button {
+      padding: 10px 15px;
+      margin-top: 10px;
+      background: #2c7be5;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+    .box {
+      background: white;
+      padding: 15px;
+      margin-top: 20px;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+
+<body>
+
+<h1>DawaAI</h1>
+<p>
+This website helps poor and common people understand basic health
+and government health schemes for FREE.
+</p>
+
+<div class="box">
+  <h2>🩺 Free Health Check</h2>
+
+  <p>Enter your age:</p>
+  <input type="number" id="age">
+
+  <p>Do you feel weak or tired often?</p>
+  <select id="weak">
+    <option value="no">No</option>
+    <option value="yes">Yes</option>
+  </select>
+
+  <br><br>
+  <button onclick="checkHealth()">Check Health</button>
+
+  <p id="result"></p>
+</div>
+
+<div class="box">
+  <h2>🏥 Government Health Schemes</h2>
+  <ul>
+    <li>Ayushman Bharat (PM-JAY)</li>
+    <li>Jan Aushadhi – Cheap Medicines</li>
+    <li>Free Vaccination Programs</li>
+    <li>Government Hospitals & PHC</li>
+  </ul>
+</div>
+
+<script>
+function checkHealth() {
+  var age = document.getElementById("age").value;
+  var weak = document.getElementById("weak").value;
+  var result = "";
+
+  if (age === "") {
+    result = "Please enter your age.";
+  } else if (age > 50 || weak === "yes") {
+    result = "⚠️ Medium Risk. Please visit a nearby government hospital.";
+  } else {
+    result = "✅ Low Risk. Maintain healthy food and walking.";
+  }
+
+  document.getElementById("result").innerText = result;
+}
+</script>
+
 </body>
 </html>
